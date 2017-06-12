@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const groupSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  members: { type: String, required: true }
+  members: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
+  description: { type: String }
 });
 
 groupSchema.methods.belongsTo = function BelongsTo(user) {
@@ -13,4 +14,4 @@ groupSchema.methods.belongsTo = function BelongsTo(user) {
 
 
 
-module.exports = mongoose.model('photo', groupSchema);
+module.exports = mongoose.model('Group', groupSchema);

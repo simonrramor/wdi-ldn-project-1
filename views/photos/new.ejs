@@ -2,7 +2,7 @@
 
 <div class="formBody">
   <h2>Make A Moment</h2>
-<form method="POST" action="/profile" enctype="multipart/form-data">
+<form method="POST" action="/photos" enctype="multipart/form-data">
     <div>
     <label for="image">Image</label>
     <input type="file" name="image" id="image">
@@ -12,6 +12,14 @@
       <label for="caption"></label>
       <textarea class="formInput" type="text" name="caption" id="caption" placeholder="Caption"></textarea>
     </div>
+
+    <label>Groups</label>
+    <% groups.forEach((group) => { %>
+      <label>
+        <input type="checkbox" name="groups" value="<%= group.id %>">
+        <%= group.name %>
+      </label>
+    <% }) %>
 
     <button type="submit">Submit</button>
   </form>

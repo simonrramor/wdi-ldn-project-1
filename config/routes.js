@@ -1,10 +1,11 @@
 const express = require('express');
 const router  = express.Router();
-const Photo = require('../models/photo');
+// const Photo = require('../models/photo');
 const sessionsController = require('../controllers/sessions');
 const registrationsController = require('../controllers/registrations');
 const secureRoute = require('../lib/secureRoute');
 const photosController = require('../controllers/photos');
+const groupsController = require('../controllers/groups');
 const upload = require('../lib/upload');
 const users = require('../controllers/users');
 
@@ -25,6 +26,21 @@ router.route('/photos/:id')
 router.route('/photos/:id/edit')
 .get(secureRoute, photosController.edit);
 
+router.route('/groups')
+.get(groupsController.index)
+.post(secureRoute, upload.single('image'), groupsController.create);
+
+router.route('/groups/new')
+.get(secureRoute, groupsController.new);
+
+router.route('/groups/:id')
+.get(groupsController.show)
+.put(secureRoute, groupsController.update)
+.delete(secureRoute, groupsController.delete);
+
+router.route('groups/:id/edit')
+.get(secureRoute, groupsController.edit);
+
 router.route('/users/:id')
 .get(secureRoute, users.show)
 .post(upload.single('image'), users.update)
@@ -43,7 +59,6 @@ router.route('/login')
 
 router.route('/logout')
 .get(sessionsController.delete);
-
 
 
 module.exports = router;

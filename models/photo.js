@@ -15,10 +15,19 @@ commentSchema.methods.belongsTo = function commentBelongsTo(user) {
 const photoSchema = new mongoose.Schema({
   caption: String,
   image: { type: String, required: true },
-  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  groups: [{ type: mongoose.Schema.ObjectId, ref: 'Group', required: true }],
   comments: [ commentSchema ]
 }, {
   timestamps: true
+});
+
+photoSchema
+.virtual('imageSRC')
+.get(function getImageSRC() {
+  if(!this.image) return null;
+  if(this.image.match(/^http/)) return this.image;
+  return `https://s3-eu-west-1.amazonaws.com/wdi-27-london-new/${this.image}`;
 });
 
 photoSchema.methods.belongsTo = function photoBelongsTo(user) {
@@ -29,4 +38,4 @@ photoSchema.methods.belongsTo = function photoBelongsTo(user) {
 
 
 
-module.exports = mongoose.model('photo', photoSchema);
+module.exports = mongoose.model('Photo', photoSchema);

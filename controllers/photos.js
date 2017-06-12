@@ -1,25 +1,33 @@
 const Photo = require('../models/photo');
+const Group = require('../models/group');
 
 function indexRoute(req, res, next) {
+  console.log(req.query)
   Photo
   .find()
   .populate('createdBy')
   .exec()
-  .then((photos) => res.render('photos/photoStream', { photos }))
+  .then((photos) => res.render('photos/index', { photos }))
   .catch(next);
 }
 
-function newRoute(req, res) {
-  return res.render('photos/new');
+function newRoute(req, res, next) {
+  Group
+  .find({'members': req.user})
+  .exec()
+  .then((groups) => res.render('photos/new', { groups }))
+  .catch(next);
 }
 
 function createRoute(req, res, next) {
+  if(req.file) req.body.image = req.file.key;
   req.body.createdBy = req.user;
+
   Photo
   .create(req.body)
   .then(() => res.redirect('/photos'))
   .catch((err) => {
-    if(err.name === 'ValidationError') return res.badRequest(`/photos/${req.params.id}/edit`, err.toString());
+    if(err.name === 'ValidationError') return res.badRequest(`/photos/new`, err.toString());
     next(err);
   });
 }
@@ -27,7 +35,7 @@ function createRoute(req, res, next) {
 function showRoute(req, res, next) {
   Photo
   .findById(req.params.id)
-  .populate('createdBy comments.createdBy')
+  .populate('createdBy comments.createdBy groups')
   .exec()
   .then((photo) => {
     if(!photo) return res.notFound();

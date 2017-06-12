@@ -1,0 +1,23 @@
+<% include ../partials/_header %>
+
+
+<h3>Group </h3>
+
+<% groups.forEach((group) => { %>
+  <div class="column">
+
+
+        <a href="/groups/<%= group.id %>"><%= group.name %></a><br>
+
+      </p>
+
+      <ul>
+      <% group.members.forEach((member) => { %>
+        <li><%= member.username %></li>
+      <% }) %>
+      </ul>
+      <p>  <%= group.description %> </p>
+      <p>  <%= group.createdBy %> </p>
+    </a>
+  </div>
+<% }) %>

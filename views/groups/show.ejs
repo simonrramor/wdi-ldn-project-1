@@ -1,0 +1,20 @@
+<% include ../partials/_header %>
+
+<h1>Show</h1>
+
+
+
+
+<h2><%= group.name %></h2>
+<h3><%= group.description %></h3>
+<h3><%= group %></h3>
+
+<% photos.forEach((photo) => { %>
+  <img src="<%= photo.imageSRC %>">
+<% }) %>
+
+<a href="/groups/<%= group.id %>/edit" class="button button-primary">Edit</a>
+<form action="/groups/<%= group.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE"/>
+  <button class="button button-primary">Delete</button>
+</form>

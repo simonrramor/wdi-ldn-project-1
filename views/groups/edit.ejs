@@ -1,0 +1,25 @@
+<% include ../partials/_header %>
+
+<h1>Edit</h1>
+
+<a href="/photos/<%= photo.id %>">
+<img class="thumbnail" src="<%= photo.image %>">
+</a>
+
+<div class="row">
+  <form class="six columns" method="POST" action="/photos/<%= photo.id %>">
+    <input type="hidden" name="_method" value="PUT">
+
+    <div>
+      <label for="image">Image</label>
+      <input class="formInput" type="text" name="image" id="image" value="<%= photo.image %>" required>
+    </div>
+
+    <div>
+      <label for="caption"></label>
+      <textarea class="formInput" type="text" name="caption" id="caption" value="<%= photo.caption %>"></textarea>
+    </div>
+
+    <button class="u-full-width button-primary">EDIT</button>
+  </form>
+</div>

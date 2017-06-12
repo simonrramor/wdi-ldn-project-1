@@ -120,17 +120,22 @@ nav li a{
 }
 
 input{
-  width: 90%;
-  padding: 1px 30px 1px 10px;
-  height: 48px;
-  background-color: white;
-  border: 1px solid $borderColor;
-  -webkit-appearance:none;
-  textarea, input { outline: none; }
-  margin: 10px 0px;
-  outline: none;
-  border: 1px solid $borderColor;
+  &[type='text'],
+  &[type='email'] {
+    width: 90%;
+    padding: 1px 30px 1px 10px;
+    height: 48px;
+    background-color: white;
+    border: 1px solid $borderColor;
+    -webkit-appearance:none;
+
+    margin: 10px 0px;
+    outline: none;
+    border: 1px solid $borderColor;
+  }
 }
+
+textarea, input { outline: none; }
 
 textarea {
   width: 95%;

@@ -1,16 +1,13 @@
-<% include ../partials/_header %>
-
 <h1>Show</h1>
 
 <a href="/photos/<%= photo.id %>">
-<img class="thumbnail" src="<%= photo.imageSRC %>">
+<img class="thumbnail" src="<%= photo.image %>">
 </a>
 
 
 
 <h2><%= photo.caption %></h2>
 <h3><%= photo.createdBy.username %></h3>
-<h3><%= photo %></h3>
 
 <a href="/photos/<%= photo.id %>/edit" class="button button-primary">Edit</a>
 
