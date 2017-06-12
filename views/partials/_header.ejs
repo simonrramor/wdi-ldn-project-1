@@ -1,0 +1,27 @@
+<header>
+  <nav>
+    <ul>
+      <a href="/photos" class="logo"> moments </li>
+      <div>
+        <%  if(!locals.isLoggedIn) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Log In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/register">Register</a>
+          </li>
+          <% } else { %>
+            <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+            </li>
+            <li>
+            <a class="nav-item" href="/photos/new">Add Photo </a>
+            </li>
+            <li>
+            <a class="nav-item" href="/photos/new">Add Group </a>
+            </li>
+            <% } %>
+        </div>
+      </ul>
+    </nav>
+</header>

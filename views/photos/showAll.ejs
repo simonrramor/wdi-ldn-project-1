@@ -1,0 +1,17 @@
+<h1>Show</h1>
+
+<a href="/photos/<%= photo.id %>">
+<img class="thumbnail" src="<%= photo.image %>">
+</a>
+
+
+
+<h2><%= photo.caption %></h2>
+<h3><%= photo.createdBy.username %></h3>
+
+<a href="/photos/<%= photo.id %>/edit" class="button button-primary">Edit</a>
+
+<form action="/photos/<%= photo.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE"/>
+  <button class="button button-primary">Delete</button>
+</form>

@@ -1,0 +1,18 @@
+<% include ../partials/_header %>
+
+<div class="formBody">
+  <h2>Make A Moment</h2>
+<form method="POST" action="/profile" enctype="multipart/form-data">
+    <div>
+    <label for="image">Image</label>
+    <input type="file" name="image" id="image">
+  </div>
+
+    <div>
+      <label for="caption"></label>
+      <textarea class="formInput" type="text" name="caption" id="caption" placeholder="Caption"></textarea>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>

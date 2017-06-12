@@ -1,0 +1,31 @@
+<% include ../partials/_header %>
+
+<div class="dateTitle">
+<h3> Date posted + Group </h3>
+</div>
+
+<div class="imgSection">
+<% photos.forEach((photo) => { %>
+
+  <%= photo.date %><br>
+  <a href="/photos/<%= photo.id %>">
+  <img class="thumbnail" src="<%= photo.image %>">
+  </a>
+
+  <% }) %>
+</div>
+
+<div class="dateTitle">
+<h3> Date posted + Group </h3>
+</div>
+
+<div class="imgSection">
+<% photos.forEach((photo) => { %>
+
+  <%= photo.date %><br>
+  <a href="/photos/<%= photo.id %>">
+  <img class="thumbnail" src="<%= photo.image %>">
+  </a>
+
+  <% }) %>
+</div>

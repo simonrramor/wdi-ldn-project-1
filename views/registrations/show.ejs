@@ -1,0 +1,19 @@
+<div class="formBody">
+<h2> Profile </h2>
+
+<p> username </p>
+<h4><%= user.username %></h4>
+<p> first name </p>
+<h4><%= user.firstName %></h4>
+<p> last name </p>
+<h4><%= user.lastName %></h4>
+<p> Email </p>
+<p><%= user.email %></p>
+
+<a href="/profile/edit" class="button">Edit</a>
+
+<form method="POST" action="/profile">
+  <input type="hidden" name="_method" value="DELETE">
+  <button class="button alert">Delete</button>
+</form>
+</div>
