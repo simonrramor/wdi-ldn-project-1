@@ -44,49 +44,49 @@ User
       image: 'https://images.unsplash.com/photo-1465126188505-4f04a0f23a4d?dpr=2&auto=format&fit=crop&w=1080&h=697&q=80&cs=tinysrgb&crop=&bg=',
       createdBy: users[0],
       groups: [groups[0]],
-      date: '10-06-17'
+      date: '10-06-2017'
     },{
       caption: 'Herbert words and also some other stuff',
       image: 'https://images.unsplash.com/photo-1465411801898-f1a78de00afc?dpr=2&auto=format&fit=crop&w=1080&h=718&q=80&cs=tinysrgb&crop=&bg=',
       createdBy: users[0],
       groups: [groups[0]],
-      date: '12-06-17'
+      date: '12-06-2017'
     },{
       caption: 'Herbert words and also some other stuff',
       image: 'https://images.unsplash.com/photo-1465411801898-f1a78de00afc?dpr=2&auto=format&fit=crop&w=1080&h=718&q=80&cs=tinysrgb&crop=&bg=',
       createdBy: users[0],
       groups: [groups[1]],
-      date: '12-06-17'
+      date: '12-06-2017'
     },{
       caption: 'Herbert words and also some other stuff',
       image: 'https://images.unsplash.com/photo-1469521669194-babb45599def?dpr=2&auto=format&fit=crop&w=1080&h=720&q=80&cs=tinysrgb&crop=&bg=',
       createdBy: users[0],
       groups: [groups[0]],
-      date: '09-06-17'
+      date: '09-06-2017'
     },{
       caption: 'Herbert words and also some other stuff',
       image: 'https://images.unsplash.com/photo-1482993032093-397e0c525e85?dpr=2&auto=format&fit=crop&w=1080&h=720&q=80&cs=tinysrgb&crop=&bg=',
       createdBy: users[0],
       groups: [groups[0]],
-      date: '12-06-17'
+      date: '12-06-2017'
     },{
       caption: 'Herbert words and also some other stuff',
       image: 'https://images.unsplash.com/photo-1486742913764-cdb6b28038f9?dpr=2&auto=format&fit=crop&w=1080&h=1620&q=80&cs=tinysrgb&crop=&bg=',
       createdBy: users[0],
       groups: [groups[1]],
-      date: '12-06-17'
+      date: '12-06-2017'
     },{
       caption: 'Herbert words and also some other stuff',
       image: 'https://static.pexels.com/photos/59523/pexels-photo-59523.jpeg',
       createdBy: users[0],
       groups: [groups[0]],
-      date: '10-06-17'
+      date: '10-06-2017'
     },{
       caption: 'Herbert words and also some other stuff',
       image: 'https://images.unsplash.com/photo-1494587416117-f102a2ac0a8d?dpr=2&auto=compress,format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=&bg=',
       createdBy: users[0],
       groups: [groups[1]],
-      date: '10-06-17'
+      date: '10-06-2017'
     }]);
   });
 })

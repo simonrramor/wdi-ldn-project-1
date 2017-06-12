@@ -1,40 +1,12 @@
 <% include ../partials/_header %>
 
-<% sortedByGroup.forEach((day) => { %>
-  <div class="dateTitle">
-  <% if(day[0]) { %>
-    <a href="/groups/<%= day[0].groups[0].id %>?date=<%= day[0].date %>"><h2><%= moment(day[0].createdAt).format('MMMM Do YYYY, h:mm') %></h2></a>
-    <h3><%= day[0].groups[0].name %></h3>
-  <% } %>
+<% sortedByGroup.forEach((block) => { %>
+    <div class="dateTitle">
+    <a href="/groups/<%= block.id %>?date=<%= block.images[0].date %>"><h2><%= block.name %> - <%= block.images[0].date %></h2></a>
   </div>
   <div class="imgSection">
-    <% day.forEach((photo) => { %>
-      <li>
-      <a href="/photos/<%= photo.id %>">
-      <img class="thumbnail" src="<%= photo.imageSRC %>">
-      </a>
-      </li>
-    <% }) %>
-    </div>
+  <% block.images.forEach((image) => { %>
+    <img class="thumbnail" src="<%= image.imageSRC %>">
+  <% }) %>
+  </div>
 <% }) %>
-
-
-<% for (let i = 0; i < photos.length; i++) { %>
-
-  <% if(i === 0 || moment(photos[i].createdAt).format('MMMM Do YYYY, h:mm') !== moment(photos[i-1].createdAt).format('MMMM Do YYYY, h:mm')) { %>
-
-    <div class="dateTitle">
-      <h2><%= moment(photos[i].createdAt).format('MMMM Do YYYY, h:mm') %></h2>
-    </div>
-    <div class="imgSection">
-  <% } %>
-
-    <a href="/photos/<%= photos[i].id %>">
-    <img class="thumbnail" src="<%= photos[i].imageSRC %>">
-    </a>
-
-  <% if(i === photos.length - 1 || moment(photos[i].createdAt).format('MMMM Do YYYY, h:mm') !== moment(photos[i+1].createdAt).format('MMMM Do YYYY, h:mm')) { %>
-    </div>
-  <% } %>
-
-  <% } %>
