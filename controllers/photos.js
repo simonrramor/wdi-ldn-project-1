@@ -2,12 +2,66 @@ const Photo = require('../models/photo');
 const Group = require('../models/group');
 
 function indexRoute(req, res, next) {
-  console.log(req.query)
-  Photo
-  .find()
-  .populate('createdBy')
+  Group
+  .find({'members': req.user})
   .exec()
-  .then((photos) => res.render('photos/index', { photos }))
+  .then((groups) => {
+
+    // console.log(groups);
+
+    // const groupsObject = {};
+    // for(let i = 0; i < groups.length; i++) groupsObject[groups[i].id] = [];
+    // console.log(groupsObject);
+
+    Photo
+    .find()
+    .populate('createdBy groups')
+    .sort('-createdAt')
+    .exec()
+    .then((photos) => {
+
+
+      const sortedByDate = []; // eventually an array of arrays
+      photos.forEach((photo) => {
+        let pushed = false;
+        sortedByDate.forEach((dateArray) => {
+          var date = dateArray[0].date;
+          if (photo.date === date) {
+            dateArray.push(photo);
+            pushed = true;
+          }
+        });
+        if (!pushed) sortedByDate.push([photo]);
+      });
+
+      // console.log(sortedByDate);
+
+      const sortedByGroup = [];
+      sortedByDate.forEach((dateArray) => {
+        for (let i = 0; i < groups.length; i++) {
+          const miniArray = [];
+          dateArray.forEach((image) => {
+            // if (image.groups.indexOf(groups[i].id) > -1) {
+            //   miniArray.push(image);
+            // }
+
+            const match = image.groups.find((group) => {
+              return group.id === groups[i].id;
+            });
+
+            if (match) miniArray.push(image);
+            
+          });
+          sortedByGroup.push(miniArray);
+        }
+      });
+
+      console.log(sortedByGroup);
+
+      // do something with photos
+      res.render('photos/index', { photos, sortedByGroup });
+    });
+  })
   .catch(next);
 }
 

@@ -12,15 +12,19 @@
       <label for="caption"></label>
       <textarea class="formInput" type="text" name="caption" id="caption" placeholder="Caption"></textarea>
     </div>
+    <input type="hidden" name="date" value="<%= moment(new Date).format('DD-MM-YYYY') %>">
 
-    <label>Groups</label>
+<div class="groupSelect">
+
+
+    <h3> <label>Groups</label> <h3>
     <% groups.forEach((group) => { %>
       <label>
         <input type="checkbox" name="groups" value="<%= group.id %>">
         <%= group.name %>
       </label>
     <% }) %>
-
+</div>
     <button type="submit">Submit</button>
   </form>
 </div>

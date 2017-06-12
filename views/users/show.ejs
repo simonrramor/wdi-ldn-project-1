@@ -1,3 +1,6 @@
+<% include ../partials/_header %>
+
+
 <div class="column">
   <% if (user.image) { %>
     <img src="<%= user.imageSRC %>" alt="<%= user.username %>">
@@ -6,7 +9,8 @@
   <form method="POST" action="/users/<%= user.id %>">
     <a href="/users/<%= user.id %>/edit" class="button">Edit Account</a>
     <input type="hidden" name="_method" value="DELETE">
-    <button class="button is-danger">Delete Account</button>
+
+    <button class="button">Delete Account</button>
   </form>
 </div>
 <div class="column">

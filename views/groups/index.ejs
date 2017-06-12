@@ -1,23 +1,33 @@
 <% include ../partials/_header %>
 
 
-<h3>Group </h3>
+<div class="dateTitle">
+<h2>Groups</h2>
+</div>
+<div class="groupPage">
 
 <% groups.forEach((group) => { %>
-  <div class="column">
+  <a href="/groups/<%= group.id %>">
+  <div class="groupShow">
+  <h3> Group </h3>
+  <%= group.name %>
 
 
-        <a href="/groups/<%= group.id %>"><%= group.name %></a><br>
 
-      </p>
+  <br>
+  <h3> Members </h3>
+  <ul>
 
-      <ul>
-      <% group.members.forEach((member) => { %>
-        <li><%= member.username %></li>
-      <% }) %>
-      </ul>
-      <p>  <%= group.description %> </p>
-      <p>  <%= group.createdBy %> </p>
+  <% group.members.forEach((member) => { %>
+
+    <li><%= member.username %></li>
+    <% }) %>
+    </ul>
+    <h3> About </h3>
+    <p>  <%= group.description %> </p>
+    <p>  <%= group.createdBy %> </p>
     </a>
+    </div>
+    <% }) %>
+  </a>
   </div>
-<% }) %>

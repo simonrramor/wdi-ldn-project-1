@@ -1,16 +1,18 @@
+<% include ../partials/_header %>
+
 <div class="formBody">
-<h2> Profile </h2>
+<h3> Profile </h3>
 
-<p> username </p>
-<h4><%= user.username %></h4>
-<p> first name </p>
-<h4><%= user.firstName %></h4>
-<p> last name </p>
-<h4><%= user.lastName %></h4>
-<p> Email </p>
-<p><%= user.email %></p>
+<h3> username </h3>
+<%= user.username %>
+<h3> first name </h3>
+<%= user.firstName %>
+<h3> last name </h3>
+<%= user.lastName %>
+<h3> Email </h3>
+<%= user.email %>
 
-<a href="/profile/edit" class="button">Edit</a>
+<a href="/users/edit" class="button">Edit</a>
 
 <form method="POST" action="/profile">
   <input type="hidden" name="_method" value="DELETE">

@@ -31,7 +31,7 @@ function updateRoute(req, res, next) {
   }
 
   req.user.save()
-    .then(() => res.redirect('/profile'))
+    .then(() => res.redirect('/users'))
     .catch((err) => {
       if(err.name === 'ValidationError') return res.badRequest('/profile/edit', err.toString());
       next(err);

@@ -40,8 +40,11 @@ function showRoute(req, res, next) {
   .then((group) => {
     if(!group) return res.notFound();
 
+    const query = {groups: group.id};
+    if (req.query.date) query.date = req.query.date;
+
     return Photo
-      .find({'groups': group.id})
+      .find(query)
       .exec()
       .then((photos) => {
         if(!photos) return console.log('No photos in this group currently');

@@ -1,5 +1,6 @@
 const express = require('express');
 const router  = express.Router();
+const registrations = require('../controllers/registrations');
 // const Photo = require('../models/photo');
 const sessionsController = require('../controllers/sessions');
 const registrationsController = require('../controllers/registrations');
@@ -37,6 +38,12 @@ router.route('/groups/:id')
 .get(groupsController.show)
 .put(secureRoute, groupsController.update)
 .delete(secureRoute, groupsController.delete);
+
+router.route('/users')
+.get(secureRoute, registrations.show);
+
+router.route('/users')
+.delete(secureRoute, registrations.delete);
 
 router.route('groups/:id/edit')
 .get(secureRoute, groupsController.edit);
