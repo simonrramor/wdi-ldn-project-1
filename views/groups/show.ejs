@@ -5,7 +5,6 @@
 <% if(!momentPage) {%>
 <h1><%= group.name %></h1>
 <h2><%= group.description %></h2>
-
 <%  } %>
 
 <% for (let i = 0; i < photos.length; i++) { %>
@@ -35,32 +34,26 @@
 
   <% } %>
 
-  <% if(locals.isLoggedIn) { %>
-    <% if(momentPage) {%>
-      <div class="commentSection">
-      <% group.comments.forEach((comment) => { %>
-        <% if (comment.date === photos[0].date) { %>
-          <p><%= comment.createdBy.username %>: <%= comment.content %></p>
 
-          // <form action="/groups/<%= group.id %>/comments" method="POST">
-          //   <textarea name="content"> </textarea>
-          //   <input type="hidden" name="date" value="<%= photos[0].date %>">
-          //   <button type="submit"> Add comment </button>
-        </form>
-      <%  } %>
-    <% }) %>
-<% } %>
+  <% if(momentPage) {%>
+    <div class="commentSection">
+    <% group.comments.forEach((comment) => { %>
+      <% if (comment.date === photos[0].date) { %>
+        <p><%= comment.createdBy.username %>: <%= comment.content %></p>
+    <%  } %>
+  <% }) %>
 
-
+      <form action="/groups/<%= group.id %>/comments" method="POST">
+        <textarea name="content"> </textarea>
+        <input type="hidden" name="date" value="<%= photos[0].date %>">
+        <button type="submit"> Add comment </button>
+    </form>
     </div>
   <% } %>
 
-
-
-
 <% if(!momentPage) {%>
-  <form action="/groups/<%= group.id %>" method="POST">
-    <input type="hidden" name="_method" value="DELETE"/>
-    <button class="button button-primary">Delete</button>
-  </form>
-<%  } %>
+<form action="/groups/<%= group.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE"/>
+  <button class="button button-primary">Delete</button>
+</form>
+<% } %>
