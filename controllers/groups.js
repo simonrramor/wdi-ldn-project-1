@@ -47,6 +47,7 @@ function showRoute(req, res, next) {
 
     return Photo
       .find(query)
+      .populate('createdBy')
       .exec()
       .then((photos) => {
         if(!photos) return console.log('No photos in this group currently');

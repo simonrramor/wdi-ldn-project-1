@@ -4,7 +4,6 @@
       <a href="/photos" class="logo"> moments </li>
         <div>
           <%  if(!locals.isLoggedIn) { %>
-            <li class="menu">&#9776;</li>
             <li class="nav-item">
             <a class="nav-link" href="/login">Log In</a>
             </li>
@@ -32,4 +31,9 @@
           </div>
         </ul>
       </nav>
+      <% for(const type in messages) { %>
+        <div class="callout <%= type %>">
+        <%= messages[type] %>
+        </div>
+        <% } %>
     </header>

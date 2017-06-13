@@ -1,10 +1,9 @@
 <% include ../partials/_header %>
 
 <% sortedByGroup.forEach((block) => { %>
-    <div class="dateTitle">
+    <div class="blockTitle">
     <a href="/groups/<%= block.id %>?date=<%= block.images[0].date %>">
-    <h2> <%= block.images[0].date %></h2>
-    <p><%= block.name%></p> </a>
+    <h3> <span> <%= block.images[0].date %> </span>– <%= block.name%></h3></a>
   </div>
 
   <div class="imgSection">
