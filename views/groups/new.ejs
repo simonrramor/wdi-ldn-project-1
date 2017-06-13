@@ -4,25 +4,25 @@
   <h2>Create a Group</h2>
   <form method="POST" action="/groups" enctype="multipart/form-data">
     <div>
-      <h3> <label for="name">Group name</label></h3>
       <input class="formInput" class="formInput" type="text" placeholder="Group name" name="name" id="name">
     </div>
 
-    <div class="groupSelect">
-      <h3> <label for="members">add members</label> </h3>
-      <% users.forEach((user) => { %>
-        <label>
-        <input type="checkbox" name="members" value="<%= user.id %>">
-        <%= user.username %>
-        </label>
-        <% }) %>
-      </div>
+
 
       <div>
-        <h3> <label for="description"> Description</label> </h3>
         <textarea class="formInput" type="text" name="description" id="description" placeholder="Description"></textarea>
       </div>
 
-      <button type="submit">Submit</button>
+      <div class="groupSelect">
+        <h3> Add members </h3>
+        <% users.forEach((user) => { %>
+          <label>
+          <input type="checkbox" name="members" value="<%= user.id %>">
+          <%= user.username %>
+          </label>
+          <% }) %>
+        </div>
+
+      <button type="submit">CREATE GROUP</button>
     </form>
   </div>

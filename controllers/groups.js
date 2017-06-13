@@ -41,14 +41,16 @@ function showRoute(req, res, next) {
     if(!group) return res.notFound();
 
     const query = {groups: group.id};
+    let momentPage = false;
     if (req.query.date) query.date = req.query.date;
+    if (req.query.date) momentPage = true;
 
     return Photo
       .find(query)
       .exec()
       .then((photos) => {
         if(!photos) return console.log('No photos in this group currently');
-        return res.render('groups/show', { group, photos });
+        return res.render('groups/show', { group, photos, momentPage });
       });
 
   })
@@ -115,7 +117,7 @@ function createCommentRoute(req, res, next) {
     group.comments.push(req.body); // create an embedded record
     return group.save();
   })
-  .then((group) => res.redirect(`/groups/${group.id}`))
+  .then((group) => res.redirect(`/groups/${group.id}?date=${req.body.date}`))
   .catch(next);
 }
 

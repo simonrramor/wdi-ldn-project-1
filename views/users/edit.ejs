@@ -1,24 +1,32 @@
+<% include ../partials/_header %>
+
 <div class="column">
   <h1 class="title">Edit</h1>
 
   <form method="POST" action="/users/<%= user.id %>" enctype="multipart/form-data">
-    <div class="field">
-      <label class="label" for="username">Name</label>
-      <p class="control">
-        <input class="input" type="text" name="username" id="username" value="<%= user.username %>">
-      </p>
+    <div>
+      <label for="firstName">First Name</label>
+      <input type="text" name="firstName" id="firstName" value="<%= user.firstName %>">
     </div>
-    <div class="field">
-      <label class="label" for="email">Email</label>
-      <p class="control">
-        <input class="input" type="email" name="email" id="email" value="<%= user.email %>">
-      </p>
+    <div>
+      <label for="lastName">Last Name</label>
+      <input type="text" name="lastName" id="lastName" value="<%= user.lastName %>">
     </div>
-    <div class="field">
-      <label class="label" for="image">Image</label>
-      <label class="button is-primary" for="image">Choose file</label>
-      <input type="file" name="image" id="image" hidden>
+    <div>
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" value="<%= user.username %>">
     </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" value="<%= user.email %>">
+    </div>
+
+    <label for="image" class="btn btn-success fileinput-button"><i class="fa fa-camera" aria-hidden="true"></i>                           Upload an image</label>
+    <input type="file" name="image" id="image" hidden>
+  </div>
+
+
+
     <button class="button">Update</button>
   </form>
   <hr/>

@@ -1,33 +1,66 @@
 <% include ../partials/_header %>
 
-<div class="groupBox">
-<h2><%= group.name %></h2>
-<h3><%= group.description %></h3>
-<h3><%= group %></h3>
-</div>
+
+
+<% if(!momentPage) {%>
+<h1><%= group.name %></h1>
+<h2><%= group.description %></h2>
+
+<%  } %>
+
 <% for (let i = 0; i < photos.length; i++) { %>
 
-  <% if(i === 0 || moment(photos[i].createdAt).format('MMMM Do YYYY, h:mm') !== moment(photos[i-1].createdAt).format('MMMM Do YYYY, h:mm')) { %>
+  <% if(i === 0 || photos[i].date !== photos[i-1].date) { %>
 <div class="dateTitle">
-    <a href="/groups/<%= group.id %>?date=<%= photos[i].date %>"><h2><%= moment(photos[i].createdAt).format('MMMM Do YYYY, h:mm') %></h2></a>
-</div>
-    <div class="imgSection">
+  <% if(!momentPage) {%>
+    <a href="/groups/<%= group.id %>?date=<%= photos[i].date %>">
+    <%  } %>
 
+    <h2><%= moment(photos[i].createdAt).format('MMMM Do YYYY, h:mm') %></h2>
+    <% if(!momentPage) {%>
+    </a>
+    <%  } %>
+</div>
+
+    <div class="imgSection">
   <% } %>
 
     <a href="/photos/<%= photos[i].id %>">
     <img class="thumbnail" src="<%= photos[i].imageSRC %>">
     </a>
 
-  <% if(i === photos.length - 1 || moment(photos[i].createdAt).format('MMMM Do YYYY, h:mm') !== moment(photos[i+1].createdAt).format('MMMM Do YYYY, h:mm')) { %>
+  <% if(i === photos.length - 1 || photos[i].date !== photos[i+1].date) { %>
     </div>
   <% } %>
 
   <% } %>
 
+  <% if(locals.isLoggedIn) { %>
+    <% if(momentPage) {%>
+      <div class="commentSection">
+      <% group.comments.forEach((comment) => { %>
+        <% if (comment.date === photos[0].date) { %>
+          <p><%= comment.createdBy.username %>: <%= comment.content %></p>
+
+          // <form action="/groups/<%= group.id %>/comments" method="POST">
+          //   <textarea name="content"> </textarea>
+          //   <input type="hidden" name="date" value="<%= photos[0].date %>">
+          //   <button type="submit"> Add comment </button>
+        </form>
+      <%  } %>
+    <% }) %>
+<% } %>
 
 
-<form action="/groups/<%= group.id %>" method="POST">
-  <input type="hidden" name="_method" value="DELETE"/>
-  <button class="button button-primary">Delete</button>
-</form>
+    </div>
+  <% } %>
+
+
+
+
+<% if(!momentPage) {%>
+  <form action="/groups/<%= group.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE"/>
+    <button class="button button-primary">Delete</button>
+  </form>
+<%  } %>

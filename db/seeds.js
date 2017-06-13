@@ -18,6 +18,7 @@ User
 .create([{
   firstName: 'Simon',
   lastName: 'Amor',
+  image: 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAaPAAAAJDFhNzNhZjliLWQyNTQtNGM4MS04YmZhLWYxMGFlOTVlOGFlNQ.jpg',
   username: 'simonrramor',
   email: 'simonrramor@gmail.com',
   password: 'password',
@@ -28,13 +29,13 @@ User
 
   return Group
   .create([{
-    name: 'Simon',
+    name: 'Friends',
     members: [users[0]],
-    description: 'This is a group'
+    description: 'This is a group to post images to your Friends'
   },{
-    name: 'Emily',
+    name: 'Family',
     members: [users[0]],
-    description: 'This is a group'
+    description: 'This is a group to post images to your family'
   }])
   .then((groups) => {
 

@@ -17,7 +17,7 @@ function editRoute(req, res, next) {
     .exec()
     .then((user) => {
       if(!user) return res.redirect();
-      if(!user.belongsTo(req.user)) return res.unauthorized(`/users/${user.id}`, 'You do not have permission to edit that resource');
+      // if(!user.belongsTo(req.user)) return res.unauthorized(`/users/${user.id}`, 'You do not have permission to edit that resource');
       return res.render('users/edit', { user });
     })
     .catch(next);

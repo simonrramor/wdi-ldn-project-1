@@ -2,8 +2,11 @@
 
 <% sortedByGroup.forEach((block) => { %>
     <div class="dateTitle">
-    <a href="/groups/<%= block.id %>?date=<%= block.images[0].date %>"><h2><%= block.name %> - <%= block.images[0].date %></h2></a>
+    <a href="/groups/<%= block.id %>?date=<%= block.images[0].date %>">
+    <h2> <%= block.images[0].date %></h2>
+    <p><%= block.name%></p> </a>
   </div>
+
   <div class="imgSection">
   <% block.images.forEach((image) => { %>
     <img class="thumbnail" src="<%= image.imageSRC %>">

@@ -9,8 +9,13 @@ const photosController = require('../controllers/photos');
 const groupsController = require('../controllers/groups');
 const upload = require('../lib/upload');
 const users = require('../controllers/users');
+const oauth = require('../controllers/oauth');
+
 
 router.get('/', (req, res) => res.render('statics/index'));
+
+router.route('/oauth/instagram')
+.get(oauth.instagram);
 
 router.route('/photos')
 .get(photosController.index)
@@ -39,14 +44,17 @@ router.route('/groups/:id')
 .put(secureRoute, groupsController.update)
 .delete(secureRoute, groupsController.delete);
 
+router.route('/groups/:id/comments')
+.post(secureRoute, groupsController.createComment);
+
+router.route('/groups/:id/comments/:commentId')
+.delete(secureRoute, groupsController.deleteComment);
+
 router.route('/users')
 .get(secureRoute, registrations.show);
 
 router.route('/users')
 .delete(secureRoute, registrations.delete);
-
-router.route('groups/:id/edit')
-.get(secureRoute, groupsController.edit);
 
 router.route('/users/:id')
 .get(secureRoute, users.show)
@@ -59,6 +67,9 @@ router.route('/users/:id/edit')
 router.route('/register')
 .get(registrationsController.new)
 .post(registrationsController.create);
+
+router.route('groups/:id/edit')
+.get(secureRoute, groupsController.edit);
 
 router.route('/login')
 .get(sessionsController.new)

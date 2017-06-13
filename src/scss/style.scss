@@ -6,6 +6,38 @@ $borderColor: #f5f5f5;
 * {
   box-sizing: border-box;
 }
+
+h1{
+  font-family: 'Cormorant', serif;
+  font-weight: 100;
+  font-size: 100px;
+  font-kerning: auto;
+  margin: 0;
+}
+
+h2{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  font-size: 30px;
+  font-kerning: auto;
+  margin: 0px 0px 20px 0px;
+}
+
+h3{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  font-kerning: auto;
+  margin: 0px 0px 20px 0px;
+}
+p{
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  font-size: 16px;
+}
+
+
 .backgroundGrid{
   margin: 0 auto;
   display: flex;
@@ -27,35 +59,12 @@ body{
   background-color: #fafafa;
 }
 
-h1{
-  font-family: 'Cormorant', serif;
-  font-weight: 100;
-  font-size: 100px;
-  font-kerning: auto;
-  margin: 0;
-}
-
-h2{
-  font-family: 'Cormorant', serif;
-  font-weight: 400;
-  font-size: 30px;
-  font-kerning: auto;
-  margin: 0px 0px 20px 0px;
-}
-
-h3{
-  font-family: sans-serif;
-  font-weight: 900;
-  font-size: 16px;
-  font-kerning: auto;
-  margin: 0px 0px 20px 0px;
-}
 p{
-  margin: 0;
-  font-family: sans-serif;
-  font-weight: 100;
-  font-size: 16px;
+  font-size: 14px;
+  margin-top: 20px;
 }
+
+
 
 nav{
   padding: 10px 30px;
@@ -65,8 +74,12 @@ nav{
   border-bottom: 1px solid $borderColor;
 }
 
+.dropdown {
+          display: none;
+        }
+
 nav li {
-  font-family: sans-serif;
+  font-family: 'Raleway', sans-serif;;
   color: $highLight;
   font-size: 13px;
   float: right;
@@ -131,6 +144,13 @@ nav li a{
 }
 
 input{
+  &[type=checkbox],
+  &[type=radio] {
+    margin-right: 10px;
+  }
+}
+
+input{
   &[type='text'],
   &[type='password'],
   &[type='password confimation'],
@@ -138,13 +158,12 @@ input{
     width: 90%;
     padding: 10px 30px 1px 10px;
     height: 48px;
-    background-color: white;
-    border: 1px solid $borderColor;
+    border: none;
+    border-bottom: 1px solid grey;
     -webkit-appearance:none;
-
-    margin: 20px 0px;
     outline: none;
-    border: 1px solid $borderColor;
+    font-size: 14px;
+
   }
 }
 
@@ -154,8 +173,17 @@ textarea {
   width: 95%;
   height: 48px;
   margin-top: 20px;
-  padding:10px 30px 1px 10px;
+  padding: 21px 14px 1px 10px;
   line-height: 1;
+  border: none;
+  border-bottom: 1px solid grey;
+  font-size: 14px;
+}
+
+label{
+  padding-right: 20px;
+  font-family: 'Raleway', sans-serif;;
+  font-weight: 100;
 }
 
 input:-webkit-autofill {
@@ -183,7 +211,7 @@ button {
   background-color: black;
   color: white;
   margin: 20px 10px 30px 0px;
-  font-family: sans-serif;
+  font-family: 'Raleway', sans-serif;;
   font-weight: 100;
   font-size: 12px;
   letter-spacing: 3px;
@@ -198,12 +226,16 @@ button {
   text-decoration: none;
   padding: 10px 50px;
   margin: 0px 10px 0px 0px;
-  font-family: sans-serif;
+  font-family: 'Raleway', sans-serif;;
   font-weight: 100;
   font-size: 12px;
   letter-spacing: 3px;
 }
 
+.chooseFileBtn{
+  background-color: red;
+
+}
 .instaBtn{
   height: 48px;
   width: 49%;
@@ -212,7 +244,7 @@ button {
   text-decoration: none;
   padding: 10px 50px;
   margin: 0px 10px 0px 0px;
-  font-family: sans-serif;
+  font-family: 'Raleway', sans-serif;;
   font-weight: 100;
   font-size: 12px;
   letter-spacing: 3px;
@@ -232,10 +264,19 @@ button {
 
 }
 
+
+.commentSection{
+  width: 90%;
+    background-color: red;
+    margin: 30px auto;
+    padding: 20px;
+}
+
 .imgSection{
 
   padding: 8px;
-  margin: 0px 100px;
+  width: 90%;
+  margin: 0 auto;
   list-style: none;
   background-color: white;
   border: 1px solid $borderColor;
@@ -257,8 +298,6 @@ button {
   padding: 8px;
   margin: 30px 100px;
   list-style: none;
-  background-color: white;
-  border: 1px solid $borderColor;
 }
 
 .dateTitle{
@@ -273,7 +312,7 @@ button {
   background-color: white;
   padding: 16px;
   border: 1px solid $borderColor;
-    margin: 8px;
+  margin: 8px;
 }
 
 .groupPage{
@@ -287,4 +326,46 @@ button {
   padding-left: 10px;
   text-decoration: none;
   color: black;
+}
+
+
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+}
+/*Also */
+.btn-success {
+  color: white;
+  background-color: black;
+}
+/* This is copied from https://github.com/blueimp/jQuery-File-Upload/blob/master/css/jquery.fileupload.css */
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+}
+/*Also*/
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter:'alpha(opacity=0)';
+  font-size: 200px;
+  direction: ltr;
+  cursor: pointer;
 }

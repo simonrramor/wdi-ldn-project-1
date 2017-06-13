@@ -1,15 +1,16 @@
 <% include ../partials/_header %>
 
 <div class="formBody">
-  <h2>Make A Moment</h2>
+  <h2>make a moment</h2>
 <form method="POST" action="/photos" enctype="multipart/form-data">
-    <div>
-    <label for="image">Image</label>
-    <input type="file" name="image" id="image">
+
+  <div>
+
+    <label for="image" class="btn btn-success fileinput-button"><i class="fa fa-camera" aria-hidden="true"></i>                           Upload an image</label>
+    <input type="file" name="image" id="image" hidden>
   </div>
 
     <div>
-      <label for="caption"></label>
       <textarea class="formInput" type="text" name="caption" id="caption" placeholder="Caption"></textarea>
     </div>
     <input type="hidden" name="date" value="<%= moment(new Date).format('DD-MM-YYYY') %>">
@@ -25,6 +26,6 @@
       </label>
     <% }) %>
 </div>
-    <button type="submit">Submit</button>
+    <button type="submit">SUBMIT</button>
   </form>
 </div>

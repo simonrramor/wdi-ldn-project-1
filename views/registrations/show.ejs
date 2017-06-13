@@ -1,8 +1,11 @@
 <% include ../partials/_header %>
 
+<% if (user.image) { %>
+    <img src="<%= user.imageSRC %>" alt="<%= user.username %>">
+  <% } %>
+
 <div class="formBody">
 <h3> Profile </h3>
-
 <h3> username </h3>
 <%= user.username %>
 <h3> first name </h3>
@@ -11,8 +14,12 @@
 <%= user.lastName %>
 <h3> Email </h3>
 <%= user.email %>
+<h3> User </h3>
+<%= user %>
 
-<a href="/users/edit" class="button">Edit</a>
+
+
+<a href="/users/<%= user.id %>/edit" class="button">Edit</a>
 
 <form method="POST" action="/profile">
   <input type="hidden" name="_method" value="DELETE">

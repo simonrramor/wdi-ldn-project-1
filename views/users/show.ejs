@@ -1,20 +1,27 @@
 <% include ../partials/_header %>
 
 
-<div class="column">
+
+<div class="formBody">
   <% if (user.image) { %>
     <img src="<%= user.imageSRC %>" alt="<%= user.username %>">
   <% } %>
-  <h1 class="title"><%= user.username %></h1>
-  <form method="POST" action="/users/<%= user.id %>">
-    <a href="/users/<%= user.id %>/edit" class="button">Edit Account</a>
-    <input type="hidden" name="_method" value="DELETE">
+<h3> Profile </h3>
+<h3> username </h3>
+<%= user.username %>
+<h3> first name </h3>
+<%= user.firstName %>
+<h3> last name </h3>
+<%= user.lastName %>
+<h3> Email </h3>
+<%= user.email %>
 
-    <button class="button">Delete Account</button>
-  </form>
-</div>
-<div class="column">
-  <div class="box">
-    <%= user %>
-  </div>
+
+
+<a href="/users/<%= user.id %>/edit" class="button">Edit</a>
+
+<form method="POST" action="/profile">
+  <input type="hidden" name="_method" value="DELETE">
+  <button class="button alert">Delete</button>
+</form>
 </div>
