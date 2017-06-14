@@ -7,12 +7,22 @@ $mainFontColor: black;
   box-sizing: border-box;
 }
 
+hr {
+  box-sizing: content-box;
+  height: 0;
+  color: $borderColor;
+}
+
+.cardSpacing{
+  margin: 0px 0px 24px 0px;
+}
+
 h1{
   font-family: 'Cormorant', serif;
   font-weight: 100;
-  font-size: 100px;
+  font-size: 48px;
   font-kerning: auto;
-  margin: 0;
+  margin: 0px 0px 15px 0px;
 }
 
 h2{
@@ -26,9 +36,9 @@ h2{
 h3{
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 20px;
   font-kerning: auto;
-  margin: 0px 0px 20px 0px;
+  margin: 16px 0px 20px 0px;
 }
 
 h4{
@@ -107,7 +117,7 @@ nav li a{
   text-decoration: none;
     font-family: Cormorant,serif;
     font-weight: 900;
-    color: #2b3a52;
+    color: black;
     line-height: 0.3;
     font-size: 42px;
     letter-spacing: -2px;
@@ -117,7 +127,7 @@ nav li a{
     text-decoration: none;
     font-family: Cormorant,serif;
     font-weight: 900;
-    color: #2b3a52;
+    color: black;
     font-size: 100px;
     line-height: 1;
 }
@@ -215,6 +225,10 @@ input:-webkit-autofill {
 
 button, submit { border:none; }
 
+.hideButton{
+  padding-right: 20px;
+  margin: -100px;
+}
 .callout {
   font-family: 'Raleway', sans-serif;
   color: white;
@@ -233,7 +247,7 @@ button, submit { border:none; }
 button {
   display: block;
   height: 38px;
-  width: 49%;
+  padding: 14px 64px 16px 64px;
   background-color: black;
   color: white;
   margin: 20px 10px 30px 0px;
@@ -354,11 +368,33 @@ span{
   background-color: white;
   padding: 16px;
   border: 1px solid $borderColor;
-  margin: 8px;
+  margin: 0px 24px 24px 0px;
 }
 
+.groupShow:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.1);
+  -webkit-transition: all 0.2s linear;
+ -o-transition: all 0.2s linear;
+ -moz-transition: all 0.2s linear;
+ -ms-transition: all 0.2s linear;
+ -kthtml-transition: all 0.2s linear;
+ transition: all 0.2s linear;
+}
+
+.members{
+  font-size: 14px;
+  display: inline-block;
+  margin: 0px 8px 8px 0px;
+  background-color: $borderColor;
+  padding: 8px 16px;
+  border-radius: 30px;
+  text-align: center;
+}
+
+
 .groupPage{
-  margin: 30px 100px;
+  width: 90%;
+  margin: 0 auto;
   display: flex;
 }
 

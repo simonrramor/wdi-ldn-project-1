@@ -1,31 +1,32 @@
 <% include ../partials/_header %>
 
 
-<div class="dateTitle">
-<h2>Groups</h2>
+<div class="blockTitle">
+<h1> Your Groups</h1>
 </div>
-<div class="groupPage">
 
+<div class="groupPage">
 <% groups.forEach((group) => { %>
   <a href="/groups/<%= group.id %>">
   <div class="groupShow">
-  <h3> Group </h3>
-  <%= group.name %>
+  <div class="cardSpacing">
+  <h2> Group Name </h2>
+  <p> <%= group.name %> </p>
+  </div>
 
 
-
-  <br>
   <h3> Members </h3>
-  <ul>
 
   <% group.members.forEach((member) => { %>
-
-    <li><%= member.username %></li>
+    <div class="members"><%= member.username %></div>
     <% }) %>
-    </ul>
+
+
+    <div class="cardSpacing">
     <h3> About </h3>
     <p>  <%= group.description %> </p>
-    <p>  <%= group.createdBy %> </p>
+    </div>
+
     </a>
     </div>
     <% }) %>

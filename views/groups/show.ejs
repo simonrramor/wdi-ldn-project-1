@@ -1,9 +1,17 @@
 <% include ../partials/_header %>
 
+<div class="blockTitle">
 <% if(!momentPage) {%>
   <h1><%= group.name %></h1>
-  <h2><%= group.description %></h2>
+  <h3><%= group.description %></h3>
   <%  } %>
+
+    <form action="/groups/<%= group.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE"/>
+    <button class="button button-primary">DELETE GROUP</button>
+    </form>
+</div>
+
 
 
   <% for (let i = 0; i < photos.length; i++) { %>
@@ -14,7 +22,9 @@
         <a href="/groups/<%= group.id %>?date=<%= photos[i].date %>">
         <%  } %>
 
-        <h2><%= moment(photos[i].createdAt).format('MMMM Do YYYY, h:mm') %></h2>
+        <div class="blockTitle">
+          <h3> <%= moment(photos[i].createdAt).format('MMMM Do YYYY, h:mm') %> </h3>
+          </div>
         <% if(!momentPage) {%>
           </a>
           <%  } %>
@@ -61,11 +71,3 @@
                     </div>
                     <% } %>
                     <% } %>
-
-
-                    <% if(!momentPage) {%>
-                      <form action="/groups/<%= group.id %>" method="POST">
-                      <input type="hidden" name="_method" value="DELETE"/>
-                      <button class="button button-primary">DELETE GROUP</button>
-                      </form>
-                      <% } %>
