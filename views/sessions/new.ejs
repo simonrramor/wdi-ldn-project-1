@@ -1,6 +1,6 @@
 <% include ../partials/_header %>
 <div class="formBody">
-  <h2>Login</h2>
+  <h2>Log In</h2>
 
   <form method="POST" action="/login" class="loginForm">
     <div>
@@ -8,11 +8,11 @@
       <input class ="formInput" type="text" placeholder="Email" name="email" id="email">
     </div>
     <div>
-      
+
       <input class="formInput" type="password" placeholder="Password" name="password" id="password">
     </div>
 
-    <button>Login</button>
+    <button>LOG IN</button>
       <a href="<%=oauth.instagram.getLoginUrl() %>" class="instaBtn">SIGN UP WITH INSTAGRAM</a>
   </form>
 

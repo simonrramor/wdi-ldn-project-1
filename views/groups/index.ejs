@@ -3,20 +3,21 @@
 
 <div class="blockTitle">
 <h1> Your Groups</h1>
-<h3><a href="/groups/new"> New Group </a> </h3>
+<h3><a href="/groups/new" class="btnColor"> <i class="fa fa-plus-circle" aria-hidden="true"></i> ADD GROUP </a> </h3>
 </div>
 
+<div class="imgSection">
 <div class="groupPage">
 <% groups.forEach((group) => { %>
   <a href="/groups/<%= group.id %>">
   <div class="groupShow">
   <div class="cardSpacing">
-  <h2> Group Name </h2>
-  <p> <%= group.name %> </p>
+  <p> Group Name </p>
+  <h2> <%= group.name %> </h2>
   </div>
 
 
-  <h3> Members </h3>
+  <p> Members </p>
 
   <% group.members.forEach((member) => { %>
     <div class="members"><%= member.username %></div>
@@ -24,12 +25,15 @@
 
 
     <div class="cardSpacing">
-    <h3> About </h3>
+    <p> About </p>
     <p>  <%= group.description %> </p>
     </div>
+
+    <hr>
 
     </a>
     </div>
     <% }) %>
   </a>
   </div>
+</div>

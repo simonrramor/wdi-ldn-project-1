@@ -2,7 +2,12 @@
   <nav>
     <ul>
       <a href="/photos" class="logo"> moments </li>
-        <div>
+
+        <%# <form method="GET">
+      <input type="text" name="q" placeholder="Search">
+    </form>%>
+
+
           <%  if(!locals.isLoggedIn) { %>
             <li class="nav-item ">
             <a class="nav-link log" href="/login">LOG IN</a>

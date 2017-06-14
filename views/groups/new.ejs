@@ -15,12 +15,16 @@
 
       <div class="groupSelect">
         <h3> Add members </h3>
+
         <% users.forEach((user) => { %>
+          <div class="checkBox">
           <label>
           <input type="checkbox" name="members" value="<%= user.id %>">
           <%= user.username %>
           </label>
+              </div>
           <% }) %>
+
         </div>
 
       <button type="submit">CREATE GROUP</button>

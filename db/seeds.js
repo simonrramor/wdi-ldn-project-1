@@ -53,9 +53,21 @@ User
     name: 'Family',
     members: [users[0]],
     description: 'This is a group to post images to your family'
+  },{
+    name: 'Travel Buddies',
+    members: [users[0]],
+    description: 'Group of people we met traveling'
+  },{
+    name: 'Work Friends',
+    members: [users[0]],
+    description: 'Work Friends'
+  },{
+    name: 'Uni Legends',
+    members: [users[0]],
+    description: 'The grew from Uni'
   }])
   .then((groups) => {
-
+    console.log(`${groups.length} groups created`);
     return Photo
     .create([{
       caption: 'Herbert words and also some other stuff',

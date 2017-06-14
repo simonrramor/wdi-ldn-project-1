@@ -2,22 +2,30 @@
 
 
 
+  <h1> Profile </h1>
+  <div class="deleteProfile">
+    <form method="POST" action="/profile">
+      <input type="hidden" name="_method" value="DELETE">
+      <button class="button alert">DELETE</button>
+    </form>
+  </div>
+</div>
+
+
 <div class="formBody">
+  <div class="profile">
   <% if (user.image) { %>
     <img src="<%= user.imageSRC %>" alt="<%= user.username %>">
-  <% } %>
-<h3> Profile </h3>
-<h3> username </h3>
-<%= user.username %>
-<h3> first name </h3>
-<%= user.firstName %>
-<h3> last name </h3>
-<%= user.lastName %>
-<h3> Email </h3>
-<%= user.email %>
-
-<form method="POST" action="/profile">
-  <input type="hidden" name="_method" value="DELETE">
-  <button class="button alert">Delete</button>
-</form>
+    <% } %>
+    <div class="profileInfo">
+      <p> username </p>
+      <h2> <%= user.username %> </h2>
+      <p> First name </p>
+       <h2> <%= user.firstName %> </h2>
+      <p> Last name </p>
+      <h2> <%= user.lastName %> </h2>
+      <p> Email </p>
+    <h2>   <%= user.email %> </h2>
+    </div>
+  </div>
 </div>

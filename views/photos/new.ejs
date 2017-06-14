@@ -20,10 +20,12 @@
 
     <h3> <label>Groups</label> <h3>
     <% groups.forEach((group) => { %>
+      <div class="checkBox">
       <label>
         <input type="checkbox" name="groups" value="<%= group.id %>">
         <%= group.name %>
       </label>
+      </div>
     <% }) %>
 </div>
     <button type="submit">SUBMIT</button>

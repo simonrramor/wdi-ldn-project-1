@@ -1,16 +1,40 @@
 <% include ../partials/_header %>
 
+<form method="GET">
+  <input type="date" name="q" placeholder="Search">
+  <button>Filter</button>
+</form>
 
+<% photos.forEach((photo) => { %>
+  <img src="<%= photo.imageSRC %>">
+  <p><%= photo.date %></p>
+<% }) %>
 
-  <% sortedByGroup.forEach((block) => { %>
+<% if ((sortedByGroup.length === 0) && (filteredPhotos === 0) ) { %>
+<div class="emoji">
+  <div class="face face__sad">
+    <div class="eye-left"></div>
+    <div class="eye-right"></div>
+    <div class="mouth"></div>
+  </div>
+</div>
+
+<div class="noPhotos">
+  <h2> No photos to display </h2>
+  <p> Make a group and add photos to start your feed </p>
+  </div>
+  <% } else { %>
+    <% sortedByGroup.forEach((block) => { %>
       <div class="blockTitle">
       <a href="/groups/<%= block.id %>?date=<%= block.images[0].date %>">
       <h3> <span> <%= block.images[0].date %> </span>– <%= block.name%></h3></a>
-    </div>
+      </div>
 
-    <div class="imgSection">
-    <% block.images.forEach((image) => { %>
-      <img class="thumbnail" src="<%= image.imageSRC %>">
-    <% }) %>
-    </div>
-  <% }) %>
+      <div class="imgSection">
+      <% block.images.forEach((image) => { %>
+        <img class="thumbnail" src="<%= image.imageSRC %>">
+        <% }) %>
+        </div>
+        <% }) %>
+
+        <% } %>

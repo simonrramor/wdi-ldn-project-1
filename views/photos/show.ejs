@@ -1,21 +1,15 @@
 <% include ../partials/_header %>
 
-<h1>Show</h1>
+<div class="blockTitle">
+  <h2><%= photo.caption %></h2>
+  <p>Posted by – <%= photo.createdBy.username %></p>
+  <form action="/photos/<%= photo.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE"/>
+    <button class="deleteBtn">DELETE</button>
+  </form>
+</div>
+
 
 <a href="/photos/<%= photo.id %>">
-<img class="thumbnail" src="<%= photo.imageSRC %>">
+  <img class="fullImage" src="<%= photo.imageSRC %>">
 </a>
-
-
-<h2><%= photo.groups.name %></h2>
-<h2><%= photo.caption %></h2>
-<h3><%= photo.createdBy.username %></h3>
-
-<h3><%= photo %></h3>
-
-<a href="/photos/<%= photo.id %>/edit" class="button button-primary">Edit</a>
-
-<form action="/photos/<%= photo.id %>" method="POST">
-  <input type="hidden" name="_method" value="DELETE"/>
-  <button class="button button-primary">Delete</button>
-</form>

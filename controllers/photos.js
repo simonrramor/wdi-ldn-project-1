@@ -2,63 +2,88 @@ const Photo = require('../models/photo');
 const Group = require('../models/group');
 
 function indexRoute(req, res, next) {
-  // Find all groups that the current user is a member of
-  Group
-  .find({'members': req.user})
-  .exec()
-  .then((groups) => {
+  let sortedByGroup = [];
+
+  if(req.query.q) {
+    sortedByGroup = [];
+    console.log(req.query.q);
+    req.query.q = req.query.q.split('-').reverse().join('-');
+
+    const regex = new RegExp(req.query.q, 'i');
+    const query = { date: regex };
+    console.log(query);
+
 
     Photo
-    .find()
-    .populate('createdBy groups')
-    .sort('-createdAt')
+      .find()
+      .exec()
+      .then((photos) => {
+        console.log(photos);
+        res.render('photos/index', { photos, sortedByGroup });
+      })
+      .catch((err) => {
+        res.notFound('statics/404', err.toString());
+      });
+  } else {
+    // Find all groups that the current user is a member of
+    Group
+    .find({'members': req.user})
     .exec()
-    .then((photos) => {
+    .then((groups) => {
 
-      const sortedByDate = []; // eventually an array of arrays
-      photos.forEach((photo) => {
-        let pushed = false;
+      return Photo
+      .find()
+      .populate('createdBy groups')
+      .sort('-createdAt')
+      .exec()
+      .then((photos) => {
+
+        const sortedByDate = []; // eventually an array of arrays
+        photos.forEach((photo) => {
+          let pushed = false;
+          sortedByDate.forEach((dateArray) => {
+            // Loop through all photos, and check if the date matches the date in any of the mini sorted arrays
+            var date = dateArray[0].date;
+            if (photo.date === date) {
+              // If it matches, push it in (with other photos of the same date)
+              dateArray.push(photo);
+              pushed = true;
+            }
+          });
+          // If there are no mini arrays of photos with the same date, create a new one and push it in
+          if (!pushed) sortedByDate.push([photo]);
+        });
+
+        sortedByGroup = []; // Eventually become an array of objects, sorted by group and date
         sortedByDate.forEach((dateArray) => {
-          // Loop through all photos, and check if the date matches the date in any of the mini sorted arrays
-          var date = dateArray[0].date;
-          if (photo.date === date) {
-            // If it matches, push it in (with other photos of the same date)
-            dateArray.push(photo);
-            pushed = true;
+          // Loop through all possible groups a photo can belong to
+          for (let i = 0; i < groups.length; i++) {
+            // Create a mini object to store the group and image data
+            const miniObject = {
+              id: groups[i].id,
+              name: groups[i].name,
+              images: []
+            };
+            // For each array that we sorted earlier (images sorted by date)
+            dateArray.forEach((image) => {
+              // Check to see if the image has a group in it's groups array that matches one of the current users groups that we pulled in above
+              const match = image.groups.find((group) => {
+                return group.id === groups[i].id;
+              });
+              // If there's a match, add the image to the mini object images array
+              if (match) miniObject.images.push(image);
+            });
+            // If the images array isn't empty, then push the mini sorted object (with group name, id and images array) into the sortedByGroup array
+            if (miniObject.images.length > 0) sortedByGroup.push(miniObject);
           }
         });
-        // If there are no mini arrays of photos with the same date, create a new one and push it in
-        if (!pushed) sortedByDate.push([photo]);
+        // Finally, render the index page and send through the sorted images
+        res.render('photos/index', { photos, sortedByGroup });
       });
+    })
+    .catch(next);
+  }
 
-      const sortedByGroup = []; // Eventually become an array of objects, sorted by group and date
-      sortedByDate.forEach((dateArray) => {
-        // Loop through all possible groups a photo can belong to
-        for (let i = 0; i < groups.length; i++) {
-          // Create a mini object to store the group and image data
-          const miniObject = {
-            id: groups[i].id,
-            name: groups[i].name,
-            images: []
-          };
-          // For each array that we sorted earlier (images sorted by date)
-          dateArray.forEach((image) => {
-            // Check to see if the image has a group in it's groups array that matches one of the current users groups that we pulled in above
-            const match = image.groups.find((group) => {
-              return group.id === groups[i].id;
-            });
-            // If there's a match, add the image to the mini object images array
-            if (match) miniObject.images.push(image);
-          });
-          // If the images array isn't empty, then push the mini sorted object (with group name, id and images array) into the sortedByGroup array
-          if (miniObject.images.length > 0) sortedByGroup.push(miniObject);
-        }
-      });
-      // Finally, render the index page and send through the sorted images
-      res.render('photos/index', { photos, sortedByGroup });
-    });
-  })
-  .catch(next);
 }
 
 function newRoute(req, res, next) {
