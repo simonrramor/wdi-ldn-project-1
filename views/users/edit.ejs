@@ -1,7 +1,7 @@
 <% include ../partials/_header %>
 
 <div class="column">
-  <h1 class="title">Edit</h1>
+  <h1 class="title">Edit Profile</h1>
 
   <form method="POST" action="/users/<%= user.id %>" enctype="multipart/form-data">
     <div>
@@ -21,9 +21,10 @@
       <input type="email" name="email" id="email" value="<%= user.email %>">
     </div>
 
-    <label for="image" class="btn btn-success fileinput-button"><i class="fa fa-camera" aria-hidden="true"></i>                           Upload an image</label>
-    <input type="file" name="image" id="image" hidden>
-  </div>
+    <div>
+      <label for="image" class="btn btn-success fileinput-button"><i class="fa fa-camera" aria-hidden="true"></i> Upload an image</label>
+      <input type="file" name="image" id="image" class="hideButton">
+    </div>
 
 
 

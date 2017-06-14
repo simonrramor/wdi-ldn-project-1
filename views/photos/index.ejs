@@ -1,14 +1,16 @@
 <% include ../partials/_header %>
 
-<% sortedByGroup.forEach((block) => { %>
-    <div class="blockTitle">
-    <a href="/groups/<%= block.id %>?date=<%= block.images[0].date %>">
-    <h3> <span> <%= block.images[0].date %> </span>– <%= block.name%></h3></a>
-  </div>
 
-  <div class="imgSection">
-  <% block.images.forEach((image) => { %>
-    <img class="thumbnail" src="<%= image.imageSRC %>">
+
+  <% sortedByGroup.forEach((block) => { %>
+      <div class="blockTitle">
+      <a href="/groups/<%= block.id %>?date=<%= block.images[0].date %>">
+      <h3> <span> <%= block.images[0].date %> </span>– <%= block.name%></h3></a>
+    </div>
+
+    <div class="imgSection">
+    <% block.images.forEach((image) => { %>
+      <img class="thumbnail" src="<%= image.imageSRC %>">
+    <% }) %>
+    </div>
   <% }) %>
-  </div>
-<% }) %>

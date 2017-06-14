@@ -135,7 +135,7 @@ function deleteCommentRoute(req, res, next) {
 
     return group.save();
   })
-  .then((group) => res.redirect(`/groups/${group.id}`))
+  .then((group) => res.redirect(`/groups/${group.id}?date=${req.body.date}`))
   .catch(next);
 }
 
