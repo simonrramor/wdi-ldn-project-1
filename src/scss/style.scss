@@ -961,12 +961,15 @@ nav li{
 
 
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 400px) {
 
+
+.homepageTitle p {
+    padding: 0px 30px;
+}
 
 h1{
-  align-items: center;
-  align-content: center;
+  float: none;
   text-align: center;
 }
 
@@ -979,7 +982,9 @@ h2{
     text-align: center;
   }
 
-
+.btnColor{
+  float: none;
+}
   .instaBtn{
     padding: 16px 16px;
   }
@@ -1000,6 +1005,9 @@ h2{
     background-size: cover;
     width: 100%;
     height: 100vh;
+
+    left: 0;
+    top: 0;
     margin: 0 auto;
 
     &:before {
@@ -1030,6 +1038,17 @@ h2{
 display: none;
 }
 
+.blockTitle{
+  text-align: center;
+}
 
+.deleteProfile{
+  float: none;
+}
+
+.deleteBtn {
+    background-color: #c73b54;
+    margin: 0 auto;
+}
 
 }
