@@ -1,16 +1,8 @@
 <% include ../partials/_header %>
 
-<form method="GET">
-  <input type="date" name="q" placeholder="Search">
-  <button>Filter</button>
-</form>
 
-<% photos.forEach((photo) => { %>
-  <img src="<%= photo.imageSRC %>">
-  <p><%= photo.date %></p>
-<% }) %>
 
-<% if ((sortedByGroup.length === 0) && (filteredPhotos === 0) ) { %>
+<% if (sortedByGroup.length === 0) { %>
 <div class="emoji">
   <div class="face face__sad">
     <div class="eye-left"></div>

@@ -1,8 +1,9 @@
 <% include ../partials/_header %>
 
+
 <div class="blockTitle">
   <h2><%= photo.caption %></h2>
-  <p>Posted by – <%= photo.createdBy.username %></p>
+  <p>Posted by – <%= photo.createdBy.username %></=>
   <form action="/photos/<%= photo.id %>" method="POST">
     <input type="hidden" name="_method" value="DELETE"/>
     <button class="deleteBtn">DELETE</button>

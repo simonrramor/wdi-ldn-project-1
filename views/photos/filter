@@ -1,0 +1,12 @@
+
+<% if ((sortedByGroup.length === 0) && (filteredPhotos === 0) ) { %>
+
+<form method="GET">
+  <input type="date" name="q" placeholder="Search">
+  <button>Filter</button>
+</form>
+
+<% photos.forEach((photo) => { %>
+  <img src="<%= photo.imageSRC %>">
+  <p><%= photo.date %></p>
+<% }) %>

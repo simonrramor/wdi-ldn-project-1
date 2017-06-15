@@ -1,5 +1,21 @@
 <% include ../partials/_header %>
 
+<% if (groups.length === 0) { %>
+<div class="emoji">
+  <div class="face face__sad">
+    <div class="eye-left"></div>
+    <div class="eye-right"></div>
+    <div class="mouth"></div>
+  </div>
+</div>
+
+<div class="noPhotos">
+  <h2> You are not a part of any groups </h2>
+  <p> Make a group and add photos to start your feed </p>
+  <a href="/groups/new" class="btnColorAdd"> <i class="fa fa-plus-circle" aria-hidden="true"></i> ADD GROUP </a>
+  </div>
+
+  <% } else { %>
 
 <div class="blockTitle">
 <h1> Your Groups</h1>
@@ -29,11 +45,10 @@
     <p>  <%= group.description %> </p>
     </div>
 
-    <hr>
-
     </a>
     </div>
     <% }) %>
   </a>
   </div>
 </div>
+<% } %>

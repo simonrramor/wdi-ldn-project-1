@@ -53,9 +53,6 @@ router.route('/groups/:id/comments/:commentId')
 router.route('/users')
 .get(secureRoute, registrations.show);
 
-router.route('/users')
-.delete(secureRoute, registrations.delete);
-
 router.route('/users/:id')
 .get(secureRoute, users.show)
 .post(upload.single('image'), users.update)

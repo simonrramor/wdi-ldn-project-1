@@ -19,7 +19,7 @@ User
   firstName: 'Simon',
   lastName: 'Amor',
   image: 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAaPAAAAJDFhNzNhZjliLWQyNTQtNGM4MS04YmZhLWYxMGFlOTVlOGFlNQ.jpg',
-  username: 'simonrramor',
+  username: 'Simon Amor',
   email: 'simonrramor@gmail.com',
   password: 'password',
   passwordConfirmation: 'password'
@@ -27,7 +27,7 @@ User
   firstName: 'Lucy',
   lastName: 'Carstenns',
   image: 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAaPAAAAJDFhNzNhZjliLWQyNTQtNGM4MS04YmZhLWYxMGFlOTVlOGFlNQ.jpg',
-  username: 'Lucy',
+  username: 'Lucy ',
   email: 'lucy@gmail.com',
   password: 'password',
   passwordConfirmation: 'password'
@@ -35,7 +35,7 @@ User
   firstName: 'Jane',
   lastName: 'Amor',
   image: 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAaPAAAAJDFhNzNhZjliLWQyNTQtNGM4MS04YmZhLWYxMGFlOTVlOGFlNQ.jpg',
-  username: 'JaneAmor',
+  username: 'Jane Amor',
   email: 'Jane@gmail.com',
   password: 'password',
   passwordConfirmation: 'password'
@@ -120,6 +120,18 @@ User
     },{
       caption: 'Herbert words and also some other stuff',
       image: 'https://images.unsplash.com/photo-1469521669194-babb45599def?dpr=2&auto=format&fit=crop&w=1080&h=720&q=80&cs=tinysrgb&crop=&bg=',
+      createdBy: users[0],
+      groups: [groups[0]],
+      date: '09-06-2017'
+    },{
+      caption: 'Herbert words and also some other stuff',
+      image: 'https://images.unsplash.com/photo-1489782419474-4d4221dc5b10?dpr=2&auto=format&fit=crop&w=1500&h=1001&q=80&cs=tinysrgb&crop=&bg=',
+      createdBy: users[0],
+      groups: [groups[0]],
+      date: '09-06-2017'
+    },{
+      caption: 'Herbert words and also some other stuff',
+      image: 'https://images.unsplash.com/photo-1494894578460-6707508a7fd0?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=',
       createdBy: users[0],
       groups: [groups[0]],
       date: '09-06-2017'

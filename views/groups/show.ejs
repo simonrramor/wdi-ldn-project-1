@@ -56,7 +56,7 @@
                 <form action="/groups/<%= group.id %>/comments" method="POST">
                 <textarea name="content"> </textarea>
                 <input type="hidden" name="date" value="<%= photos[0].date %>">
-                <button type="submit"> Add comment </button>
+                <button type="submit"> ADD COMMENT </button>
                 </form>
                 <% group.comments.forEach((comment) => { %>
                   <% if (comment.date === photos[0].date) { %>
@@ -67,7 +67,7 @@
                       <form method="POST" action="/groups/<%= group.id %>/comments/<%= comment.id %>">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="date" value="<%= photos[0].date %>">
-                        <button>Delete</button>
+                        <button class="commentDeleteBtn">DELETE</button>
                       </form>
                     <% } %>
 
