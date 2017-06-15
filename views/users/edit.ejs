@@ -1,34 +1,37 @@
 <% include ../partials/_header %>
 
+<div class="formBody">
 <div class="column">
-  <h1 class="title">Edit Profile</h1>
+  <h2>Edit Profile</h2>
 
   <form method="POST" action="/users/<%= user.id %>" enctype="multipart/form-data">
     <div>
-      <label for="firstName">First Name</label>
+
+      <div>
+        <label for="image" class="btn btn-success fileinput-button"><i class="fa fa-camera" aria-hidden="true"></i> Upload an image</label>
+        <input type="file" name="image" id="image" class="hideButton">
+      </div>
+
       <input type="text" name="firstName" id="firstName" value="<%= user.firstName %>">
     </div>
     <div>
-      <label for="lastName">Last Name</label>
+
       <input type="text" name="lastName" id="lastName" value="<%= user.lastName %>">
     </div>
     <div>
-      <label for="username">Username</label>
+
       <input type="text" name="username" id="username" value="<%= user.username %>">
     </div>
     <div>
-      <label for="email">Email</label>
+
       <input type="email" name="email" id="email" value="<%= user.email %>">
     </div>
 
-    <div>
-      <label for="image" class="btn btn-success fileinput-button"><i class="fa fa-camera" aria-hidden="true"></i> Upload an image</label>
-      <input type="file" name="image" id="image" class="hideButton">
-    </div>
+
 
 
 
     <button class="button">Update</button>
   </form>
-  <hr/>
+</div>
 </div>

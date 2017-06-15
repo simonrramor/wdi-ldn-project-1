@@ -55,6 +55,7 @@ router.route('/users')
 
 router.route('/users/:id')
 .get(secureRoute, users.show)
+
 .post(upload.single('image'), users.update)
 .delete(secureRoute, users.delete);
 

@@ -13,10 +13,10 @@ $(() => {
 
   function displayLinks() {
     // If the window width is greater than or equal to 575px show the links
-    // // This is needed if the links have been hidden on a smaller screen, and then the window is resized
-    // if ($window.width() >= 720) {
-    //   $dropdown.show();
-    // }
+    // This is needed if the links have been hidden on a smaller screen, and then the window is resized
+    if ($window.width() >= 760) {
+      $dropdown.show();
+    }
   }
 
   // Event listeners

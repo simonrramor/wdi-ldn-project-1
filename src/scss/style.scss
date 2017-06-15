@@ -297,6 +297,8 @@ button:hover{
 
 
 
+
+
 .primaryBtn{
   height: 48px;
   width: 90px;
@@ -305,10 +307,22 @@ button:hover{
   text-decoration: none;
   padding: 10px 50px;
   margin: 0px 10px 0px 0px;
-  font-family: 'Raleway', sans-serif;;
-  font-weight: 100;
+  font-family: 'Raleway', sans-serif;
   font-size: 12px;
   letter-spacing: 3px;
+}
+
+.primaryBtnEdit{
+  width: 200px;
+  background-color: $highLight;
+  color: white;
+  text-decoration: none;
+  padding: 10px 80px;
+  margin: 0px 0px 20px 0px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  display: block;
 }
 
 .primaryBtn:hover {
@@ -327,7 +341,6 @@ button:hover{
   padding: 16px 16px;
   margin: 0px 10px 0px 0px;
   font-family: 'Raleway', sans-serif;;
-  font-weight: 100;
   font-size: 12px;
   letter-spacing: 3px;
 }
@@ -521,12 +534,19 @@ span{
   top: -1px;
 }
 
+.profile{
+  margin-top: 16px;
+}
 .deleteProfile{
   float: right;
 }
 
 .profileInfo{
   float: right;
+}
+
+.profileImg{
+  margin-right: 20px;
 }
 
 .fileinput-button input {
@@ -552,11 +572,6 @@ span{
 }
 
 .deleteBtn{
-  margin: 20px 0px;
-  float: right;
-  position: absolute;
-  left: 81%;
-  top: 10%;
   background-color: $delete;
 }
 
@@ -838,7 +853,9 @@ nav li{
     background-color: white;
     text-align: right;
     display: none;
-    position: relative;
+    position: absolute;
+    right: 0;
+    top: 44px;
 
   }
 
@@ -906,7 +923,8 @@ nav li{
 
 .homepageBtn{
   width: 100%;
-  margin: 20px auto
+  margin: 20px auto;
+  text-align: center;
 }
   .logoMain{
     font-size: 70px;

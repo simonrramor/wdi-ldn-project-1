@@ -25,6 +25,7 @@ function instagram (req, res, next) {
     .findOne({ $or: [{ email: token.user.email }, { instagramId: token.user.id }] })
     .then((user) => {
       if(!user) {
+        console.log('CREATING A NEW USER');
         user = new User({
           username: token.user.username,
           image: token.user.profile_picture

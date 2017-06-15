@@ -4,18 +4,21 @@
 <div class="blockTitle">
   <h1> Profile </h1>
   <div class="deleteProfile">
-    <form method="POST" action="/">
+    <form method="POST" action="/users/<%= user.id %>">
       <input type="hidden" name="_method" value="DELETE">
       <button class="deleteBtn">DELETE</button>
     </form>
   </div>
+  </div>
 </div>
+<br>
 
 
-<div class="formBody">
+
+<div class="imgSection">
   <div class="profile">
   <% if (user.image) { %>
-    <img src="<%= user.imageSRC %>" alt="<%= user.username %>">
+    <img class="profileImg" src="<%= user.imageSRC %>" alt="<%= user.username %>">
     <% } %>
     <div class="profileInfo">
       <p> username </p>
@@ -26,6 +29,7 @@
       <h2> <%= user.lastName %> </h2>
       <p> Email </p>
     <h2>   <%= user.email %> </h2>
+      <a href="/users/<%= user.id %>/edit" class="primaryBtnEdit"> EDIT </a>
     </div>
   </div>
 </div>
